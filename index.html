@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Key</title>
+<style>
+  :root {
+    --bg: #0f1720;
+    --card: #1a2333;
+    --accent: #ffcc00;
+    --muted: #94a3b8;
+  }
+  body {
+    background: var(--bg);
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  h1 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .task {
+    background: var(--card);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  button {
+    background: var(--accent);
+    color: black;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  button:disabled {
+    background: gray;
+    color: #222;
+    cursor: not-allowed;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎯 Hoàn thành nhiệm vụ để mở khóa</h1>
+
+<div class="task">
+  <p><b>Bước 1:</b> Đăng ký kênh YouTube</p>
+  <button id="task1" onclick="completeTask(1, 'https://www.youtube.com/@tumadamlengend')">Đăng ký kênh</button>
+</div>
+
+<div class="task hidden" id="task2box">
+  <p><b>Bước 2:</b> Bình Luận Video</p>
+  <button id="task2" onclick="completeTask(2, 'https://m.facebook.com/truong.van.man.15586/')">Bình Luận Video</button>
+</div>
+
+<div class="task hidden" id="task3box">
+  <p><b>Bước 3:</b> Tham gia nhóm Telegram</p>
+  <button id="task3" onclick="completeTask(3, 'https://t.me/tumadammod')">Tham gia nhóm</button>
+</div>
+
+<div class="task hidden" id="unlockBox">
+  <p><b>Hoàn thành xong!</b></p>
+  <button id="unlockBtn" onclick="window.location.href='https://yourlink.com'">🔓 Mở khóa</button>
+</div>
+
+<script>
+function completeTask(step, url) {
+  // Mở link nhiệm vụ
+  window.open(url, '_blank');
+
+  // Disable nút hiện tại
+  const btn = document.getElementById(`task${step}`);
+  btn.disabled = true;
+
+  // Đếm ngược 5 giây
+  let countdown = 5;
+  btn.textContent = `Đang kiểm tra... (${countdown})`;
+
+  const timer = setInterval(() => {
+    countdown--;
+    if (countdown > 0) {
+      btn.textContent = `Đang kiểm tra... (${countdown})`;
+    } else {
+      clearInterval(timer);
+      btn.textContent = "✅ Hoàn thành";
+      // Mở bước tiếp theo
+      if (step < 3) {
+        document.getElementById(`task${step + 1}box`).classList.remove("hidden");
+      } else {
+        document.getElementById("unlockBox").classList.remove("hidden");
+      }
+    }
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
