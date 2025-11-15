@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Key</title>
+
 <style>
   :root {
     --bg: #0f1720;
@@ -18,38 +19,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 30px 15px;
   }
   h1 {
     color: var(--accent);
     margin-bottom: 20px;
     text-align: center;
+    line-height: 1.4;
   }
+
   .task {
     background: var(--card);
-    padding: 15px 20px;
+    padding: 14px 18px;
     border-radius: 12px;
     margin: 10px 0;
     width: 100%;
     max-width: 400px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    transition: 0.25s;
   }
+
   button {
     background: var(--accent);
     color: black;
     border: none;
-    padding: 10px 18px;
+    padding: 10px 16px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.2s;
   }
+
+  button:active {
+    transform: scale(0.96);
+  }
+
   button:disabled {
-    background: gray;
+    background: #555;
     color: #222;
     cursor: not-allowed;
   }
+
   .hidden {
     display: none;
   }
@@ -60,36 +71,36 @@
 <h1>🎯 Hoàn thành nhiệm vụ để mở khóa</h1>
 
 <div class="task">
-  <p><b>Bước 1:</b> Đăng ký kênh YouTube</p>
-  <button id="task1" onclick="completeTask(1, 'https://www.youtube.com/@tumadamlengend')">Đăng ký kênh</button>
+  <p><b>Bước 1:</b> Bình Luận Video</p>
+  <button id="task1" onclick="completeTask(1,'https://youtu.be/W9mwZ8QQV5g?si=mo5quJFp560gER2D')">Click</button>
 </div>
 
 <div class="task hidden" id="task2box">
-  <p><b>Bước 2:</b> Bình Luận Video</p>
-  <button id="task2" onclick="completeTask(2, 'https://m.facebook.com/truong.van.man.15586/')">Bình Luận Video</button>
+  <p><b>Bước 2:</b> Join Group Telegram</p>
+  <button id="task2" onclick="completeTask(2,'https://t.me/tumadammod')">Click</button>
 </div>
 
 <div class="task hidden" id="task3box">
-  <p><b>Bước 3:</b> Tham gia nhóm Telegram</p>
-  <button id="task3" onclick="completeTask(3, 'https://t.me/tumadammod')">Tham gia nhóm</button>
+  <p><b>Bước 3:</b> Click đợi 5s</p>
+  <button id="task3" onclick="completeTask(3,'https://www.effectivegatecpm.com/w3hh8qv3vd?key=4080ee2c674e1de17af869cd1dde7864')">Click</button>
 </div>
 
 <div class="task hidden" id="unlockBox">
-  <p><b>Hoàn thành xong!</b></p>
-  <button id="unlockBtn" onclick="window.location.href='https://yourlink.com'">🔓 Mở khóa</button>
+  <p><b>🔓 Link Get Key</b></p>
+  <button onclick="location.href='https://link4m.com/TWLKP9l'">Link Chính</button>
+  <br><br>
+  <button onclick="location.href='https://funlink.io/Pg8B7OZ'">Link Phụ(Nếu Links Chính Lỗi)</button>
 </div>
 
 <script>
 function completeTask(step, url) {
-  // Mở link nhiệm vụ
+
   window.open(url, '_blank');
 
-  // Disable nút hiện tại
   const btn = document.getElementById(`task${step}`);
   btn.disabled = true;
 
-  // Đếm ngược 5 giây
-  let countdown = 5;
+  let countdown = 3;
   btn.textContent = `Đang kiểm tra... (${countdown})`;
 
   const timer = setInterval(() => {
@@ -99,9 +110,9 @@ function completeTask(step, url) {
     } else {
       clearInterval(timer);
       btn.textContent = "✅ Hoàn thành";
-      // Mở bước tiếp theo
+
       if (step < 3) {
-        document.getElementById(`task${step + 1}box`).classList.remove("hidden");
+        document.getElementById(`task${step+1}box`).classList.remove("hidden");
       } else {
         document.getElementById("unlockBox").classList.remove("hidden");
       }
@@ -109,6 +120,8 @@ function completeTask(step, url) {
   }, 1000);
 }
 </script>
+
+<script async src="//pl26947935.effectivegatecpm.com/a3/ff/2e/a3ff2eb3e4415ce00aed34eeedefbeee.js"></script>
 
 </body>
 </html>
